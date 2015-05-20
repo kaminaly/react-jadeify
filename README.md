@@ -79,6 +79,6 @@ InitCompornent(data=data)
 
 ### root.rjade
 ``` jade
-h1 #{this.state.data} #{localData} #{this.props.data}
+h1= this.state.data + ' ' + localData + ' ' + this.props.data
 
 ```
