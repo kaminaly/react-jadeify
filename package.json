@@ -1,12 +1,12 @@
 {
   "name": "react-jadeify",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A Browserify Transform for react-jade.",
   "repository": {
     "type": "git",
     "url": "git://github.com/kaminaly/react-jadeify.git"
   },
-  "keyword": [
+  "keywords": [
     "browserify",
     "transform",
     "react",
@@ -16,7 +16,7 @@
   ],
   "main": "index.js",
   "scripts": {
-    "postinstall": "coffee -bc index.coffee",
+    "build": "coffee -bc index.coffee",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": {
@@ -25,13 +25,13 @@
   },
   "license": "MIT",
   "dependencies": {
-    "coffee-script": "^1.9.2",
-    "react": "^0.13.3",
     "react-jade": "^2.4.0",
     "through": "^2.3.7"
   },
   "devDependencies": {
-    "browserify": "^10.1.3"
+    "browserify": "^10.1.3",
+    "coffee-script": "^1.9.2",
+    "react": "^0.13.3"
   },
   "bugs": {
     "url": "https://github.com/kaminaly/react-jadeify/issues"
