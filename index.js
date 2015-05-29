@@ -16,10 +16,17 @@ module.exports = function(file, opt) {
     return input += chunk;
   };
   end = function() {
-    var output, template;
-    template = jade.compile(input, {
-      filename: file
-    });
+    var err, output, template;
+    try {
+      template = jade.compile(input, {
+        filename: file
+      });
+    } catch (_error) {
+      err = _error;
+      err.stack = '';
+      this.emit('error', err);
+      return;
+    }
     output = "var React = require('react');\nmodule.exports = " + (template.toString()) + ";\nmodule.exports.locals = " + (template.locals.toString()) + ";";
     this.queue(output);
     return this.queue(null);

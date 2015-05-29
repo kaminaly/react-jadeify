@@ -9,12 +9,18 @@ module.exports = (file, opt)->
     write = (chunk)-> input += chunk
     end = ->
         #template = jade.compileClient input
-        template = jade.compile input, filename: file
+        try
+            template = jade.compile input, filename: file
+        catch err
+            err.stack = ''
+            this.emit 'error', err
+            return
+
         output = """
             var React = require('react');
             module.exports = #{template.toString()};
             module.exports.locals = #{template.locals.toString()};
         """
-        @queue output 
+        @queue output
         @queue null
     through write, end

@@ -1,6 +1,6 @@
 {
   "name": "react-jadeify",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A Browserify Transform for react-jade.",
   "repository": {
     "type": "git",
