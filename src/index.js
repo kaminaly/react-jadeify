@@ -19,15 +19,17 @@ module.exports = (file, opt = {})=> {
     let template
 
     try {
-      template = jade.compile(input, {
-        filename: file
-      });
+      template = jade.compile(input, {filename: file})
+      this.queue(```
+        var React = require('react');
+        module.exports = ${template.toString()};
+        module.exports.locals = ${template.locals.toString()};
+      ```)
+      this.queue(null)
     } catch (err) {
       err.stack = ''
       this.emit('error', err)
     }
-    this.queue(`var React = require('react');\nmodule.exports = ${template.toString()};\nmodule.exports.locals = ${template.locals.toString()};`)
-    this.queue(null)
   }
 
   return through(write, end)
