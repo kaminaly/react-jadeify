@@ -8,7 +8,35 @@ $ npm install --save-dev react-jadeify
 ```
 
 ## Usage
-Must use .rjade extention because some people (include me) want to use .jade extention for jade or jadeify.
+<s>Must use .rjade extention because some people (include me) want to use .jade extention for jade or jadeify.</s>
+Can use `.rjade` and `.react.jade` extentions as default.
+And you can change extentions by option
+
+### option
+#### extentions
+can set `String` or `Array`
+``` coffee
+browserify
+  extensions: ['.jade']
+  transform: [
+    [
+      'react-jadeify'
+      {extensions: '.jade'}
+    ]
+  ]
+
+```
+``` coffee
+browserify
+  extensions: ['.jade', '.react.jade']
+  transform: [
+    [
+      'react-jadeify'
+      {extensions: ['.jade', '.react.jade']}
+    ]
+  ]
+  
+```
 
 ### gulp
 ``` coffee

@@ -1,6 +1,6 @@
 {
   "name": "react-jadeify",
-  "version": "0.0.5",
+  "version": "0.1.1",
   "description": "A Browserify Transform for react-jade.",
   "repository": {
     "type": "git",
@@ -14,10 +14,9 @@
     "templates",
     "templating"
   ],
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "build": "coffee -bc index.coffee",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel src -d lib"
   },
   "author": {
     "name": "kaminaly",
@@ -25,12 +24,13 @@
   },
   "license": "MIT",
   "dependencies": {
-    "react-jade": "^2.5.0",
-    "through": "^2.3.7"
+    "react-jade": "^3.0.0",
+    "through": "^2.3.8"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
     "browserify": "^10.1.3",
-    "coffee-script": "^1.9.2",
     "react": "^0.13.3"
   },
   "bugs": {
